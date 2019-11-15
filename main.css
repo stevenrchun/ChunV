@@ -8,7 +8,11 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 58px;
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 42px;
 }
 
 h4 {
@@ -18,6 +22,7 @@ h4 {
 p {
   font-size: 14px;
 }
+
 #title-text {
   margin: 0;
   white-space: pre-wrap;
@@ -26,19 +31,30 @@ p {
 #hero-video {
   /*clip-path: inset(5vw 0 5vw 0); /* clip tops to match sides */
   width: 100%;
+  z-index: 0;
 }
 
-.fadein-target {
+#cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
   opacity: 0;
-  transition: opacity 2s;
 }
+
 
 #hero-video-container {
   position: fixed;
-  top: 5vw;
-  left: 5vw;
-  max-width: 90vw;
-  max-height: 80vh;
+  /* top: 9.65vh; */
+  top: 3vw;
+  left: 3vw;
+  max-width: 94vw;
+  max-height: 88.42vh;
+  /* For full screen
+  height: 100%;
+  width: 100%;
+  */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +95,7 @@ p {
 }
 
 #title-logo {
-  width: 65px;
+  width: 45px;
 }
 
 #birth-container {
@@ -119,6 +135,13 @@ p {
   animation-name: fill;
   animation-duration: 2s;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.section-title-container {
+  width: 100%;
+  padding-left: 20%;
+  margin-top: -34px;
+  z-index: 3;
 }
 
 .timeline-marker {
@@ -195,16 +218,32 @@ p {
   to {width: 24%;}
 }
 
+.fadein-target {
+  opacity: 0;
+}
+
 .fadein {
   opacity: 100%;
+}
+
+.fadein-transition {
+  transition: opacity 2s;
 }
 
 .whiteout{
   filter: brightness(0) invert(1);
 }
 
+.fadeToGrey {
+  background-color: #121212;
+}
+
 .whiteout-target {
   transition: filter 2s;
+}
+
+.fadeToGrey-target {
+  transition: background-color 2s;
 }
 
 @media only screen and (max-width: 600px) {

@@ -39,15 +39,21 @@ function flipColors() {
     item.classList.toggle("fadeToGrey");
   }
 
-  heroVideo.classList.toggle("fadein");
+  // Current bug: if more than 200 when vid starts, then fadein isn't applied.
+  // If you get to top and video should be playing, add fadein
+  if (window.scrollY < 200) {
+    heroVideo.classList.toggle("fadein");
+  }
 }
 // Initial delay then play
 setTimeout(function(){
   heroVideo.play();
   currentlyPlaying = true;
-  fadeOnScroll();
-  heroVideo.classList.toggle("fadein");
-  heroVideo.classList.toggle("fadein-transition");
+  // fadeOnScroll();
+  if (window.scrollY < 200) {
+    heroVideo.classList.toggle("fadein");
+    heroVideo.classList.toggle("fadein-transition");
+  }
 
   let whiteoutTargets = document.getElementsByClassName("whiteout-target");
   for (let item of whiteoutTargets){
@@ -94,7 +100,8 @@ var debouncedFadeOnScroll = debounce(fadeOnScroll);
 window.addEventListener('scroll', function(e) {
   //aim for 200px to be enough to fade out
   if (currentlyPlaying){
-    debouncedFadeOnScroll();
+    //debouncedFadeOnScroll();
+    fadeOnScroll();
   }
 });
 

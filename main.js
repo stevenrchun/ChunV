@@ -1,8 +1,11 @@
 let MillisToSeconds = 1000;
-var heroVideo = document.getElementById("hero-video");
-var videoCover = document.getElementById("cover");
-var currentlyPlaying = false;
-
+let whiteoutTargets = document.getElementsByClassName("whiteout-target");
+let interestPhoto = document.getElementById("interest-section-photo");
+let interestSectionTitle = document.getElementById("section-title-1");
+let interestSectionVideo = document.getElementById("interest-section-video");
+let viewportHeight = (window.innerHeight || document.documentElement.clientHeight);
+let interestSectionText = document.getElementById("section-material-1");
+let photoContainer = document.getElementById("photo-container-id");
 /**
  * Debounce functions for better performance
  * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
@@ -27,81 +30,45 @@ var debounce = function (fn) {
 	}
 };
 
-function flipColors() {
-  console.log("FLIPPING COLORS");
-  let whiteoutTargets = document.getElementsByClassName("whiteout-target");
-  for (let item of whiteoutTargets){
-    item.classList.toggle("whiteout");
-  }
 
-  let fadeToGreyTargets = document.getElementsByClassName("fadeToGrey-target");
-  for (let item of fadeToGreyTargets){
-    item.classList.toggle("fadeToGrey");
-  }
 
-  // Current bug: if more than 200 when vid starts, then fadein isn't applied.
-  // If you get to top and video should be playing, add fadein
-  if (window.scrollY < 200) {
-    heroVideo.classList.toggle("fadein");
-  }
-}
-// Initial delay then play
-setTimeout(function(){
-  heroVideo.play();
-  currentlyPlaying = true;
-  // fadeOnScroll();
-  if (window.scrollY < 200) {
-    heroVideo.classList.toggle("fadein");
-    heroVideo.classList.toggle("fadein-transition");
-  }
-
-  let whiteoutTargets = document.getElementsByClassName("whiteout-target");
-  for (let item of whiteoutTargets){
-    item.classList.toggle("whiteout");
-  }
-
-  let fadeToGreyTargets = document.getElementsByClassName("fadeToGrey-target");
-  for (let item of fadeToGreyTargets){
-    item.classList.toggle("fadeToGrey");
-  }
-}, 8 * MillisToSeconds);
-
-// An infinite loop, since it restarts the video.
-heroVideo.addEventListener("ended", function() {
-    // Override scroll opacity
-    heroVideo.style.opacity = null; 
-    // restore colors to normal 
-    flipColors();
-    currentlyPlaying = false;
-    // Now there are 20 seconds between showings.
-    setTimeout(function(){
-      heroVideo.play();
-      currentlyPlaying = true;
-      flipColors();
-    }, 20 * MillisToSeconds);
-}, true);
-
-var fadeOnScroll = function() {
-  heroVideo.classList.toggle("fadein-transition");
+var fadeLandingOnScroll = function() {
   let y = window.scrollY;
-  let opacity = 1 - (y/200.0);
-  console.log("scroll: " + y);
-  console.log("opacity: " +  opacity);
-  if (y == 0) {
-    heroVideo.style.opacity = null;
-  } else {
-    heroVideo.style.opacity = opacity;
+  let opacity = 1.5 - (y/200.0);
+  for (let item of whiteoutTargets) {
+    item.style.opacity = opacity;
   }
-  heroVideo.classList.toggle("fadein-transition");
 };
 
-var debouncedFadeOnScroll = debounce(fadeOnScroll);
+var fadeInPhotos = function(element, photoElement) {
+  let boundingBox = element.getBoundingClientRect();
+  console.log(boundingBox.top);
+  if (boundingBox.top < viewportHeight && boundingBox.top > (viewportHeight *.05)) {
+    // Is now in the frame
+    photoElement.style.opacity = 1;
+    if (photoElement.tagName == "VIDEO") {
+      photoElement.play();
+    }
+    interestSectionText.style.opacity = 0;
+  } else {
+    photoElement.style.opacity = 0;
+    if (photoElement.tagName == "VIDEO" && !photoElement.paused) {
+      photoElement.pause();
+    }
+    interestSectionText.style.opacity = 1;
+  }
+ }
+
+var applyFade = function() {
+  fadeInPhotos(interestSectionTitle, interestSectionVideo);
+}
+
+var debouncedFadeLandingOnScroll = debounce(fadeLandingOnScroll);
+var debouncedApplyFade = debounce(applyFade);
+
 
 window.addEventListener('scroll', function(e) {
-  //aim for 200px to be enough to fade out
-  if (currentlyPlaying){
-    //debouncedFadeOnScroll();
-    fadeOnScroll();
-  }
+  debouncedFadeLandingOnScroll();
+  debouncedApplyFade();
 });
 

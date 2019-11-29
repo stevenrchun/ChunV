@@ -164,7 +164,7 @@ a {
 
 .highlighted-text {
   background-color: #171717;
-  padding: 5px;
+  padding: 5px 0 5px 0;
 }
 
 .timeline-marker {
@@ -272,6 +272,33 @@ a {
 
 }
 
+.interests-overlay {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 20px solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  width: 0;
+}
+
+.typewriter {
+  /*letter-spacing: em; /* Adjust as needed */
+  animation:
+    typing 1s steps(12, end) forwards,
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
 @keyframes fill {
   from {width: 0;}
   to {width: 24%;}
@@ -315,7 +342,11 @@ a {
 
 @media only screen and (max-width: 425px) {
   h1 {
-    font-size: 40px;
+    font-size: 35px;
+  }
+
+  h4 {
+    font-size: 18px;
   }
 
   #birth, #death {

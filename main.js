@@ -1,10 +1,11 @@
 const MillisToSeconds = 1000;
 const whiteoutTargets = document.getElementsByClassName("whiteout-target");
-const interestSectionTitle = document.getElementById("section-title-1");
+const interestSectionDiv = document.getElementById("section-title-1");
 const interestSectionVideo = document.getElementById("interest-section-video");
 const viewportHeight = (window.innerHeight || document.documentElement.clientHeight);
 const interestSectionText = document.getElementById("section-material-1");
 const lastAnimation = document.getElementById("last-animation");
+const interestsSectionTitle = document.getElementById("section-title-text-1");
 let titleFadeInsDone = false;
 /**
  * Debounce functions for better performance
@@ -63,17 +64,28 @@ var fadeInPhotos = function(element, photoElement) {
   }
  }
 
+var applyClass = function(element, classString) {
+  let boundingBox = element.getBoundingClientRect();
+  if (boundingBox.top < viewportHeight && boundingBox.top > (viewportHeight *.05)) {
+    console.log("applying class " + classString);
+    // Is now in the frame
+    element.classList.add(classString);
+  }
+}
+
 var applyFade = function() {
-  fadeInPhotos(interestSectionTitle, interestSectionVideo);
+  fadeInPhotos(interestSectionDiv, interestSectionVideo);
 }
 
 var debouncedFadeLandingOnScroll = debounce(fadeLandingOnScroll);
 var debouncedApplyFade = debounce(applyFade);
+var debouncedApplyClass = debounce(applyClass);
 
 
 window.addEventListener('scroll', function(e) {
   debouncedFadeLandingOnScroll();
   debouncedApplyFade();
+  debouncedApplyClass(interestsSectionTitle, "typewriter");
 });
 
 

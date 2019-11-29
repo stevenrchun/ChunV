@@ -132,7 +132,7 @@ a {
 }
 
 .interests-container {
-  padding: 0 10% 0 10%;
+  padding: 0 15% 0 15%;
   color: #171717;
   display: flex;
   flex-flow: row;
@@ -261,15 +261,10 @@ a {
 
 }
 
-#interest-section-photo {
-  background-image: url('ireland.JPG');
-}
-
 @keyframes fill {
   from {width: 0;}
   to {width: 24%;}
 }
-
 
 @media only screen and (max-width: 600px) {
   .timeline-image {

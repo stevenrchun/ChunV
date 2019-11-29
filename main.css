@@ -57,6 +57,11 @@ a {
   margin-bottom: -40px;
   z-index: 2;
   text-align: center;
+  opacity: 0;
+  animation-name: fadein;
+  animation-delay: 3s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .title-container {
@@ -64,6 +69,11 @@ a {
   flex-flow: row;
   z-index: 2;
   margin-top: -20px;
+  opacity: 0;
+  animation-name: fadein;
+  animation-delay: 2s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .timeline-container {
@@ -140,6 +150,7 @@ a {
   margin-bottom: 40vh;
   justify-content: space-between;
   z-index: -2;
+  flex-wrap: wrap;
 }
 
 .list-heading {
@@ -266,15 +277,11 @@ a {
   to {width: 24%;}
 }
 
-@media only screen and (max-width: 600px) {
-  .timeline-image {
-    height: 30px;
-  }
-
-  .timeline-marker {
-    height: 40px;
-  }
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
+
 
 @media screen and (max-aspect-ratio: 1920/1080) {
   #interest-section-video {
@@ -287,4 +294,59 @@ a {
     width: 100%;
   }
 
+}
+
+@media only screen and (max-width: 1024px) {
+  .interests-text {
+    max-width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .timeline-image {
+    height: 30px;
+  }
+
+  .timeline-marker {
+    height: 40px;
+  }
+}
+
+
+@media only screen and (max-width: 425px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  #birth, #death {
+    font-size: 10px;
+  }
+
+  #marker-1, #marker-2 {
+    bottom: 44px;
+  }
+
+  #marker-3 {
+    top: 44px;
+  }
+
+  .section-title-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .interests-container {
+    justify-content: center;
+    padding: 0 9% 0 9%;
+  }
+
+  .interests-text{
+    max-width: 100%;
+  }
+
+  .list-heading {
+    font-size: 28px;
+  }
 }

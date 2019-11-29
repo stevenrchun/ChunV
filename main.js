@@ -1,11 +1,11 @@
-let MillisToSeconds = 1000;
-let whiteoutTargets = document.getElementsByClassName("whiteout-target");
-let interestPhoto = document.getElementById("interest-section-photo");
-let interestSectionTitle = document.getElementById("section-title-1");
-let interestSectionVideo = document.getElementById("interest-section-video");
-let viewportHeight = (window.innerHeight || document.documentElement.clientHeight);
-let interestSectionText = document.getElementById("section-material-1");
-let photoContainer = document.getElementById("photo-container-id");
+const MillisToSeconds = 1000;
+const whiteoutTargets = document.getElementsByClassName("whiteout-target");
+const interestSectionTitle = document.getElementById("section-title-1");
+const interestSectionVideo = document.getElementById("interest-section-video");
+const viewportHeight = (window.innerHeight || document.documentElement.clientHeight);
+const interestSectionText = document.getElementById("section-material-1");
+const lastAnimation = document.getElementById("last-animation");
+let titleFadeInsDone = false;
 /**
  * Debounce functions for better performance
  * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
@@ -31,18 +31,22 @@ var debounce = function (fn) {
 };
 
 
-
 var fadeLandingOnScroll = function() {
-  let y = window.scrollY;
-  let opacity = 1.5 - (y/200.0);
-  for (let item of whiteoutTargets) {
-    item.style.opacity = opacity;
+  if (titleFadeInsDone) {
+    let y = window.scrollY;
+    let opacity = 1.5 - (y/200.0);
+    for (let item of whiteoutTargets) {
+      item.style.opacity = opacity;
+      if (getComputedStyle(item).animationFillMode == "forwards") {
+        item.style.animationFillMode = "none";
+      }
+    }
   }
 };
 
+
 var fadeInPhotos = function(element, photoElement) {
   let boundingBox = element.getBoundingClientRect();
-  console.log(boundingBox.top);
   if (boundingBox.top < viewportHeight && boundingBox.top > (viewportHeight *.05)) {
     // Is now in the frame
     photoElement.style.opacity = 1;
@@ -70,5 +74,10 @@ var debouncedApplyFade = debounce(applyFade);
 window.addEventListener('scroll', function(e) {
   debouncedFadeLandingOnScroll();
   debouncedApplyFade();
+});
+
+
+lastAnimation.addEventListener('animationend', () => {
+  titleFadeInsDone = true;
 });
 

@@ -90,7 +90,6 @@ window.addEventListener('scroll', function(e) {
   debouncedFadeLandingOnScroll();
   debouncedApplyFade();
   debouncedApplyClass([interestsSectionTitle], "typewriter");
-  applyClass([interestsText], "subtitle-typewriter");
 });
 
 

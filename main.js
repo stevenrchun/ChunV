@@ -6,6 +6,7 @@ const viewportHeight = (window.innerHeight || document.documentElement.clientHei
 const interestSectionText = document.getElementById("section-material-1");
 const lastAnimation = document.getElementById("last-animation");
 const interestsSectionTitle = document.getElementById("section-title-text-1");
+const interestsText = document.getElementById("section-text-1");
 let titleFadeInsDone = false;
 /**
  * Debounce functions for better performance
@@ -40,6 +41,7 @@ var fadeLandingOnScroll = function() {
       item.style.opacity = opacity;
       if (getComputedStyle(item).animationFillMode == "forwards") {
         item.style.animationFillMode = "none";
+        item.style.animationName = "none"; // Required for safari
       }
     }
   }
@@ -64,12 +66,14 @@ var fadeInPhotos = function(element, photoElement) {
   }
  }
 
-var applyClass = function(element, classString) {
-  let boundingBox = element.getBoundingClientRect();
-  if (boundingBox.top < viewportHeight && boundingBox.top > (viewportHeight *.05)) {
-    console.log("applying class " + classString);
-    // Is now in the frame
-    element.classList.add(classString);
+var applyClass = function(elements, classString) {
+  for (element of elements) {
+    let boundingBox = element.getBoundingClientRect();
+    if (boundingBox.top < viewportHeight && boundingBox.top > (viewportHeight *.05)) {
+      console.log("applying class " + classString);
+      // Is now in the frame
+      element.classList.add(classString);
+    }
   }
 }
 
@@ -85,7 +89,8 @@ var debouncedApplyClass = debounce(applyClass);
 window.addEventListener('scroll', function(e) {
   debouncedFadeLandingOnScroll();
   debouncedApplyFade();
-  debouncedApplyClass(interestsSectionTitle, "typewriter");
+  debouncedApplyClass([interestsSectionTitle], "typewriter");
+  applyClass([interestsText], "subtitle-typewriter");
 });
 
 

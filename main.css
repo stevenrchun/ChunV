@@ -67,6 +67,7 @@ a {
 .title-container {
   display: flex;
   flex-flow: row;
+  align-items: center;
   z-index: 2;
   margin-top: -20px;
   opacity: 0;
@@ -89,6 +90,7 @@ a {
 
 #title-logo {
   width: 45px;
+  height: intrinsic; /* Safari */
 }
 
 #birth-container {
@@ -130,15 +132,6 @@ a {
   animation-name: fill;
   animation-duration: 2s;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-}
-
-.section-title-container {
-  padding-left: 20%;
-  z-index: 3;
-  margin-top: 40vh;
-  margin-bottom: 60vh;
-  color: white;
-  width: fit-content;
 }
 
 .interests-container {
@@ -276,15 +269,51 @@ a {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 20px solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  margin: auto 0; /* Gives that scrolling effect as the typing happens */
   width: 0;
+}
+
+.section-title-container {
+  padding-left: 20%;
+  z-index: 3;
+  margin-top: 40vh;
+  margin-bottom: 40vh;
+  color: white;
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
+
+.section-subtitle-container {
+  padding-left: 20%;
+  color: white;
+  width: fit-content;
+}
+
+#section-title-text-1 {
+}
+
+.section-subtitle {
+  animation-delay: 3.75s;
+  animation-fill-mode: forwards;
+  border-color: transparent;
+  border-width: 0;
 }
 
 .typewriter {
   /*letter-spacing: em; /* Adjust as needed */
   animation:
     typing 1s steps(12, end) forwards,
-    blink-caret .75s step-end infinite;
+    blink-caret .75s step-end 3 forwards;
+
+}
+
+.subtitle-typewriter {
+  animation:
+    typing 3s 2.5s steps(40, end) forwards,
+    blink-caret .75s 2.5s step-end 5 forwards;
+  border-right: 20px solid orange !important; /* The typwriter cursor */
 }
 
 /* The typing effect */

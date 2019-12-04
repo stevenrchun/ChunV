@@ -56,9 +56,9 @@ a {
   /* background zoom in */
   animation-name: background-zoomin;
   animation-delay: 5s;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(1,.11,.96,.6);
+  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
   overflow: hidden;
 }
 
@@ -125,9 +125,9 @@ a {
   transform-origin: top left;
   animation-name: zoomin;
   animation-delay: 5s;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(1,.11,.96,.6);
+  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
 }
 
 #timeline-fill {
@@ -154,9 +154,9 @@ a {
   /* background zoom in */
   animation-name: text-zoomin;
   animation-delay: 5s;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(1,.11,.96,.6);
+  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
 }
 
 
@@ -271,7 +271,15 @@ a {
     transform: translate(0vw, 0) scale(1, 1);
     padding: 0;
   }
-  to {transform: translate(-20vw, -26vh) scale(25, 25);}
+  to {transform: translate(-20vw, -26vh) scale(40, 40);}
+}
+
+@keyframes mobile-zoomin {
+  from {
+    transform: translate(0vw, 0) scale(1, 1);
+    padding: 0;
+  }
+  to {transform: translate(-20vw, -26vh) scale(40, 40);}
 }
 
 @keyframes background-zoomin {
@@ -299,27 +307,30 @@ a {
   .timeline-image {
     height: 30px;
   }
-
-  .timeline-marker {
-    height: 40px;
-  }
 }
 
 
 @media only screen and (max-width: 425px) {
-  h1 {
-    font-size: 35px;
-  }
-
-  h4 {
-    font-size: 18px;
+  .title-container {
+    padding: 0 0 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 
   #birth, #death {
-    font-size: 10px;
+    display: none;
   }
 
-  #marker-1, #marker-2 {
+  h1 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  #marker-1, #marker-2, #marker-4 {
     bottom: 44px;
   }
 
@@ -327,7 +338,54 @@ a {
     top: 44px;
   }
 
+  #timeline-border {
+    width: 90%;
+    height: 24px;
+  }
+
+  .timeline-image {
+    height: 22px;
+  }
+
+  #marker-1 {
+    left: 15.2%;
+  }
+
+  #flag {
+    margin-top: -13px;
+  }
+
+  #marker-3 {
+    left: 27%;
+  }
+
+  #d-logo {
+    margin-top: 13px;
+  }
+
+  #marker-4 {
+    left: 29%;
+    display: block;
+  }
+
+  #marker-2-text {
+    font-size: 18px;
+    margin-top: -16px;
+  }
+
 }
 
 @media only screen and (max-width: 375px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  #marker-1 {
+    left: 15.4%;
+  }
+
 }

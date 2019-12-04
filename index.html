@@ -29,9 +29,21 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
   <div class="landing-container">
+    <!--Repeated background-->
+    <div class="patterns">
+      <svg width="100%" height="100%">
+        <defs>
+          <pattern id="polka-dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+            <circle fill="#7A7A7A" cx="15" cy="15" r="1" height="100"/>
+          </pattern>
+        </defs>
+
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)" />
+      </svg>
+    </div>
+
     <div class="title-container whiteout-target">
-      <h1 id="title-text">Currently:</h1>
-      <img id="title-logo" alt="Google logo" src="g.svg"/>
+      <h1 id="title-text">Steven Chun</h1>
     </div>
 
     <div class="timeline-container whiteout-target" alt="Partially filled life timeline">
@@ -51,46 +63,27 @@
         <div class="timeline-marker bottom-marker" id="marker-3">
           <img class="timeline-image" id="d-logo" src="d.png" alt="Dartmouth College logo"/>
         </div>
+        <div class="timeline-marker top-marker" id="marker-4">
+          <img class="timeline-image" id="g-logo" src="g.svg" alt="Google logo"/>
+        </div>
         <div class="timeline-marker top-marker" id="marker-2">
           <h4 id="marker-2-text">???</h4>
         </div>
 
     </div>
 
-    <h4 class="landing-subtitle whiteout-target" id="last-animation">
-      scroll down
-    </h4>
-
-  </div>
-
-  <div id="section-title-1" class="section-title-container">
-    <h1 id="section-title-text-1" class="highlighted-text interests-overlay">Interests</h1>
-  </div>
-
-  <div id="photo-container-id" class="photo-container">
-    <div id="interest-section-photo" class="background-photo"></div>
-    <video id="interest-section-video" class="background-photo" playsinline nocontrols muted alt="Various outdoor adventures">
-      <source src="./compressedvid.m4v" type="video/mp4">
-    Your browser does not support the video tag.
-    </video>
-  </div>
-
-  <div id="section-material-1" class="interests-container">
-    <div>
-      <h2 class="list-heading">Neural Networks</h2>
-      <h2 class="list-heading">Econometrics</h2>
-      <h2 class="list-heading">Getting Outside</h2>
+    <div class="interests-container">
+      <p class="interests-text">
+        I'm currently an engineer on the realtime team in <a href="https://marketingplatform.google.com/about/analytics/">Google Analytics</a>.
+        One way to think about my work is that I make information tubes.
+        These particular tubes are some of the fastest and largest in the world. Here's a <a href="https://docs.google.com/document/d/19zsvpYW0P4jJStKdZtjX0Hgdl9I7CUqrna6UY2bLs9E/edit?usp=sharing">resume</a>.<br><br>
+        My immediate academic interests focus on artificial neural networks and their applications, though I maintain a deep love for <a href="https://drive.google.com/file/d/1HshW1AXExxaqmFieS3WwmZ8Z6UlVDU_5/view?usp=sharing">microeconomics and econometrics</a>.<br><br>
+        These, and a love of climbing and skiing, I learned as an undergraduate at <a href="https://home.dartmouth.edu/">Dartmouth College</a>.
+      </p>
     </div>
-    <p class="interests-text ">
-      I'm currently an engineer on the realtime team in <a href="https://marketingplatform.google.com/about/analytics/">Google Analytics</a>.
-      One way to think about my work is that I make information tubes.
-      These particular tubes are some of the fastest and largest in the world.<br><br>
-      My immediate academic interests focus on artificial neural networks and their applications, though I maintain a deep love for microeconomics and econometrics.<br><br>
-      These, and a love of climbing and skiing, I learned as an undergraduate at <a href="https://home.dartmouth.edu/">Dartmouth College</a>.
-    </p>
+
+
   </div>
-
-
 
   <script src="main.js"></script>
 </body>

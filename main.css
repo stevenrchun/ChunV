@@ -149,14 +149,12 @@ a {
   justify-content: center;
   align-items: center;
   transform-origin: top left;
-  transform: translate(22vw, 27vh) scale(.01, .01);
-
+  opacity: 0;
   /* background zoom in */
-  animation-name: text-zoomin;
-  animation-delay: 5s;
-  animation-duration: 2s;
+  animation-name: fadein;
+  animation-delay: 7s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
 }
 
 
@@ -271,7 +269,7 @@ a {
     transform: translate(0vw, 0) scale(1, 1);
     padding: 0;
   }
-  to {transform: translate(-20vw, -26vh) scale(40, 40);}
+  to {transform: translate(-25vw, -26vh) scale(80, 80);}
 }
 
 @keyframes mobile-zoomin {

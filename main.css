@@ -313,11 +313,6 @@ a {
   to {transform: translate(0, 0) scale(1, 1);}
 }
 
-@keyframes padding-to-zero {
-
-}
-
-
 @media screen and (max-aspect-ratio: 1920/1080) {
 
 }
@@ -337,7 +332,6 @@ a {
     font-size: 12px;
   }
 }
-
 
 @media only screen and (max-width: 425px) {
   .text-card {

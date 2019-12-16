@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: "Barlow";
+  font-family: "Work Sans", sans-serif;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Space Mono";
+  font-family: "Space Mono", monospace;
 }
 
 h1 {
-  font-size: 78px;
+  font-size: 68px;
 }
 
 h2 {
@@ -20,7 +20,8 @@ h4 {
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.5em;
 }
 
 a {
@@ -36,12 +37,10 @@ a {
 .landing-container {
   position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-flow: column;
-  justify-content: space-evenly;
   color: white;
-  padding: 10vh 0 10vh 0;
   background-color: #121212;
   overflow: hidden;
 }
@@ -53,13 +52,14 @@ a {
   height: 100vh;
   width: 100vw;
 
-  /* background zoom in */
+  /* background zoom in
   animation-name: background-zoomin;
   animation-delay: 5s;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(.84,.03,.96,.05);
   overflow: hidden;
+  */
 }
 
 .title-container {
@@ -67,11 +67,31 @@ a {
   flex-flow: row;
   align-items: center;
   padding-left: 20%;
+  margin-top: 20vh;
   width: 80%;
+  height: 10vh;
   /*margin-top: -20px;*/
   opacity: 0;
   animation-name: fadein;
   animation-delay: 2s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.text-card-wrapper {
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.text-card {
+  position: relative;
+  padding-top: 15vh;
+  height: 45vh;
+  width: 60%;
+  animation-name: padding-shrink;
+  animation-delay: 6s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
@@ -82,8 +102,10 @@ a {
   width: 100%;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  animation-name: expand;
+  animation-delay: 6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 #title-logo {
@@ -91,59 +113,38 @@ a {
   height: intrinsic; /* Safari */
 }
 
-#birth-container {
-  display: flex;
-  width: 20%;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-#birth {
-  margin-right: 10px;
-  display: block;
-  font-size: 14px;
-}
-
-#death-container {
-  display: flex;
-  width: 20%;
-  align-items: center;
-}
-
-#death {
-  margin-left: 10px;
-  display: block;
-  justify-content: flex-start;
-  font-size: 14px;
-}
-
 #timeline-border {
-  width: 60%;
-  height: 16px;
+  width: 100%;
+  height: 20px;
   box-shadow:inset 0px 0px 0px 4px white;
-  /* zoom effect */
+  /* zoom effect
   transform-origin: top left;
   animation-name: zoomin;
   animation-delay: 5s;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(.84,.03,.96,.05);
+  */
+  animation-name: expand;
+  animation-delay: 6s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 #timeline-fill {
   height: 100%;
-  width: 24%;
   background-color: white;
   animation-name: fill;
-  animation-duration: 2s;
+  animation-duration: 6s;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-fill-mode: forwards;
 }
 
 .interests-container {
   position: absolute;
-  top: 40vh;
+  top: 0;
   left: 0;
-  width: 100vw;
+  padding: 1vh 15% 1vh 15%;
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -160,7 +161,6 @@ a {
 
 .interests-text {
   color: black;
-  padding: 0 20% 0 20%;
 }
 
 
@@ -178,27 +178,21 @@ a {
   animation-fill-mode: forwards;
 }
 
-#birth, #death {
-  animation-name: fadeout;
-  animation-delay: 3.8s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
 
 .top-marker {
   border-top-style: solid;
   border-top-width: 3px;
-  bottom: 50px;
+  bottom: 20px;
 }
 
 .bottom-marker {
   border-bottom-style: solid;
   border-top-width: 3px;
-  top: 50px;
+  top: 20px;
 }
 
 #marker-1 {
-  left: 20%;
+  left: 0
 }
 
 #marker-2 {
@@ -209,14 +203,14 @@ a {
 }
 
 #marker-3 {
-  left: 31%;
+  left: 19%;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
 }
 
 #marker-4 {
-  left: 34%;
+  left: 23%;
   display: flex;
   flex-flow: column;
   justify-content: flex-end;
@@ -251,7 +245,36 @@ a {
 
 @keyframes fill {
   from {width: 0;}
-  to {width: 24%;}
+  30% {width: 24%;}
+  90% {width: 24%;}
+  to {
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+@keyframes expand {
+  from {height: 26px;}
+  to {
+    height: 100%;
+    border-radius: 5px;
+  }
+}
+
+@keyframes padding-shrink {
+  from {
+    padding-top: 15vh;
+    height: 50vh;
+  }
+  to {
+    padding-top: 0;
+    height: 65vh;
+  }
+}
+
+@keyframes fill-rest {
+  from {width: 24%;}
+  to {width: 100%;}
 }
 
 @keyframes fadein {
@@ -269,7 +292,7 @@ a {
     transform: translate(0vw, 0) scale(1, 1);
     padding: 0;
   }
-  to {transform: translate(-25vw, -26vh) scale(80, 80);}
+  to {transform: translate(-25vw, -16vh) scale(80, 80);}
 }
 
 @keyframes mobile-zoomin {
@@ -290,6 +313,10 @@ a {
   to {transform: translate(0, 0) scale(1, 1);}
 }
 
+@keyframes padding-to-zero {
+
+}
+
 
 @media screen and (max-aspect-ratio: 1920/1080) {
 
@@ -305,10 +332,18 @@ a {
   .timeline-image {
     height: 30px;
   }
+
+  p {
+    font-size: 12px;
+  }
 }
 
 
 @media only screen and (max-width: 425px) {
+  .text-card {
+    width: 80%;
+  }
+
   .title-container {
     padding: 0 0 0 0;
     display: flex;
@@ -316,9 +351,6 @@ a {
     justify-content: center;
   }
 
-  #birth, #death {
-    display: none;
-  }
 
   h1 {
     font-size: 48px;
@@ -328,16 +360,7 @@ a {
     font-size: 14px;
   }
 
-  #marker-1, #marker-2, #marker-4 {
-    bottom: 44px;
-  }
-
-  #marker-3 {
-    top: 44px;
-  }
-
   #timeline-border {
-    width: 90%;
     height: 24px;
   }
 
@@ -345,24 +368,16 @@ a {
     height: 22px;
   }
 
-  #marker-1 {
-    left: 15.2%;
-  }
-
   #flag {
     margin-top: -13px;
   }
 
-  #marker-3 {
-    left: 27%;
-  }
 
   #d-logo {
     margin-top: 13px;
   }
 
   #marker-4 {
-    left: 29%;
     display: block;
   }
 
@@ -379,11 +394,8 @@ a {
   }
 
   p {
-    font-size: 14px;
+    font-size: 11px;
   }
 
-  #marker-1 {
-    left: 15.4%;
-  }
 
 }

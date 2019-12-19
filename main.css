@@ -1,3 +1,8 @@
+html {
+  font-size: 12px;
+
+}
+
 body {
   margin: 0;
   font-family: "Work Sans", sans-serif;
@@ -9,6 +14,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 68px;
+  font-size: 6rem;
 }
 
 h2 {
@@ -21,6 +27,7 @@ h4 {
 
 p {
   font-size: 18px;
+  font-size: 1.5rem;
   line-height: 1.5em;
 }
 
@@ -63,11 +70,11 @@ a {
 }
 
 .title-container {
-  display: flex;
   flex-flow: row;
   align-items: center;
   padding-left: 20%;
   margin-top: 20vh;
+  margin-bottom: 10vh;
   width: 80%;
   height: 10vh;
   /*margin-top: -20px;*/
@@ -79,7 +86,6 @@ a {
 }
 
 .text-card-wrapper {
-  margin-top: 10vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -145,7 +151,7 @@ a {
   top: 0;
   left: 0;
   padding: 1vh 15% 1vh 15%;
-  height: 60vh;
+  height: 58vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,14 +319,22 @@ a {
   to {transform: translate(0, 0) scale(1, 1);}
 }
 
-@media screen and (max-aspect-ratio: 1920/1080) {
-
+@media only screen and (min-width: 1440px) {
+  html {
+    font-size: 14px;
+  }
 }
-@media screen and (min-aspect-ratio: 1920/1080) {
 
+@media only screen and (min-width: 2560px) {
+  html {
+    font-size: 18px;
+  }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 10px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -340,9 +354,8 @@ a {
 
   .title-container {
     padding: 0 0 0 0;
-    display: flex;
     width: 100%;
-    justify-content: center;
+    text-align: center;
   }
 
 
@@ -388,8 +401,13 @@ a {
   }
 
   p {
-    font-size: 11px;
+    font-size: 12px;
   }
 
+}
 
+@media only screen and (max-width: 320px) {
+  p {
+    font-size: 11px;
+  }
 }

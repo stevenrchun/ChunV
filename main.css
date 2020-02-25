@@ -5,409 +5,113 @@ html {
 
 body {
   margin: 0;
-  font-family: "Work Sans", sans-serif;
+  background-color: #113D30;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Space Mono", monospace;
+  font-family: "Matrix", serif;
+  color: #EFC000;
 }
 
 h1 {
-  font-size: 68px;
-  font-size: 6rem;
-}
-
-h2 {
-  font-size: 42px;
-}
-
-h4 {
-  font-size: 24px;
+  font-size: 5rem;
 }
 
 p {
+  font-family: "Futura", sans-serif;
+  color: white;
   font-size: 18px;
   font-size: 1.5rem;
   line-height: 1.5em;
 }
 
 a {
-  color: #F79F1F;
+  color: #EFC000;
 }
 
-#title-text {
-  margin: 0;
-  white-space: pre-wrap;
+.decor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-style: solid;
+  border-color: #F5F5F5;
+  border-width: 1px;
 }
 
+.outer-border {
+  margin: 50px 30px;
+}
+
+.inner-border {
+  margin: 30px 50px;
+}
+
+.title {
+  margin-bottom: 0;
+  width: 80%;
+  font-weight: 200;
+  letter-spacing: 7px;
+}
+
+.bio {
+  width: 80%;
+  z-index: 1;
+}
 
 .landing-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-flow: column;
-  color: white;
-  background-color: #121212;
-  overflow: hidden;
-}
-
-.patterns {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-
-  /* background zoom in
-  animation-name: background-zoomin;
-  animation-delay: 5s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
-  overflow: hidden;
-  */
-}
-
-.title-container {
-  flex-flow: row;
-  align-items: center;
-  padding-left: 20%;
-  margin-top: 20vh;
-  margin-bottom: 10vh;
-  width: 80%;
-  height: 10vh;
-  /*margin-top: -20px;*/
-  opacity: 0;
-  animation-name: fadein;
-  animation-delay: 2s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-.text-card-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.text-card {
-  position: relative;
-  padding-top: 15vh;
-  height: 45vh;
-  width: 60%;
-  animation-name: padding-shrink;
-  animation-delay: 6s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-.timeline-container {
-  display: flex;
-  position: relative;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  animation-name: expand;
-  animation-delay: 6s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-#title-logo {
-  width: 45px;
-  height: intrinsic; /* Safari */
-}
-
-#timeline-border {
-  width: 100%;
-  height: 20px;
-  box-shadow:inset 0px 0px 0px 4px white;
-  /* zoom effect
-  transform-origin: top left;
-  animation-name: zoomin;
-  animation-delay: 5s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.84,.03,.96,.05);
-  */
-  animation-name: expand;
-  animation-delay: 6s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-#timeline-fill {
-  height: 100%;
-  background-color: white;
-  animation-name: fill;
-  animation-duration: 6s;
-  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-  animation-fill-mode: forwards;
-}
-
-.interests-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1vh 15% 1vh 15%;
-  height: 58vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform-origin: top left;
-  opacity: 0;
-  /* background zoom in */
-  animation-name: fadein;
-  animation-delay: 7s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-
-.interests-text {
-  color: black;
-}
-
-
-.timeline-marker {
-  position: absolute;
-  height: 30px;
-  width: 5px;
-  border-left-style: solid;
-  border-left-width: 3px;
-  border-color: white;
-  /* fade out */
-  animation-name: fadeout;
-  animation-delay: 4.3s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-}
-
-
-.top-marker {
-  border-top-style: solid;
-  border-top-width: 3px;
-  bottom: 20px;
-}
-
-.bottom-marker {
-  border-bottom-style: solid;
-  border-top-width: 3px;
-  top: 20px;
-}
-
-#marker-1 {
-  left: 0
-}
-
-#marker-2 {
-  left: 50%;
-  display: flex;
   flex-flow: column;
-  justify-content: flex-start;
-}
-
-#marker-3 {
-  left: 19%;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
-}
-
-#marker-4 {
-  left: 23%;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-end;
-}
-
-.timeline-image {
-  height: 40px;
-  position: absolute;
-}
-
-#g-logo {
-  margin-top: -12px;
-  margin-left: 5px;
-}
-
-#flag {
-  margin-top: -20px;
-  margin-left: 5px;
-}
-
-#d-logo {
-  margin-top: 20px;
-  margin-left: 3px;
-}
-
-#marker-2-text {
-  margin: 0;
-  margin-top: -20px;
-  margin-left: 5px;
+  margin: 0px 20px 0px 20px;
+  min-height: 100%;
 }
 
 
-@keyframes fill {
-  from {width: 0;}
-  30% {width: 24%;}
-  90% {width: 24%;}
-  to {
-    width: 100%;
-    border-radius: 5px;
+@media only screen and (min-width: 1441px) {
+  .title {
+    font-size: 5vw;
+  }
+
+  .bio {
+    font-size: 1.5vw;
   }
 }
 
-@keyframes expand {
-  from {height: 26px;}
-  to {
-    height: 100%;
-    border-radius: 5px;
-  }
-}
-
-@keyframes padding-shrink {
-  from {
-    padding-top: 15vh;
-    height: 50vh;
-  }
-  to {
-    padding-top: 0;
-    height: 65vh;
-  }
-}
-
-@keyframes fill-rest {
-  from {width: 24%;}
-  to {width: 100%;}
-}
-
-@keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeout {
-  from {opacity: 1;}
-  to {opacity: 0;}
-}
-
-@keyframes zoomin {
-  from {
-    transform: translate(0vw, 0) scale(1, 1);
-    padding: 0;
-  }
-  to {transform: translate(-25vw, -16vh) scale(80, 80);}
-}
-
-@keyframes mobile-zoomin {
-  from {
-    transform: translate(0vw, 0) scale(1, 1);
-    padding: 0;
-  }
-  to {transform: translate(-20vw, -26vh) scale(40, 40);}
-}
-
-@keyframes background-zoomin {
-  from {transform: scale(1, 1);}
-  to {transform: scale(2, 2);}
-}
-
-@keyframes text-zoomin {
-  from {transform: translate(22vw, 27vh) scale(.01, .01);}
-  to {transform: translate(0, 0) scale(1, 1);}
-}
-
-@media only screen and (min-width: 1440px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (min-width: 2560px) {
-  html {
-    font-size: 18px;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .timeline-image {
-    height: 30px;
+@media only screen and (max-width: 767px) {
+  .title {
+    font-size: 8vw;
   }
 
-  p {
-    font-size: 13px;
+  .bio {
+    font-size: 2.5vw;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .text-card {
-    width: 80%;
+  .title {
+    font-size: 8vw;
   }
 
-  .title-container {
-    padding: 0 0 0 0;
-    width: 100%;
-    text-align: center;
+  .bio {
+    font-size: 3.6vw;
   }
-
-
-  h1 {
-    font-size: 48px;
-  }
-
-  p {
-    font-size: 13px;
-  }
-
-  #timeline-border {
-    height: 24px;
-  }
-
-  .timeline-image {
-    height: 22px;
-  }
-
-  #flag {
-    margin-top: -13px;
-  }
-
-
-  #d-logo {
-    margin-top: 13px;
-  }
-
-  #marker-4 {
-    display: block;
-  }
-
-  #marker-2-text {
-    font-size: 18px;
-    margin-top: -16px;
-  }
-
 }
 
 @media only screen and (max-width: 375px) {
-  h1 {
-    font-size: 38px;
+  .title {
+    font-size: 7vw;
   }
 
-  p {
-    font-size: 12px;
+  .bio {
+    font-size: 4vw;
   }
-
 }
 
 @media only screen and (max-width: 320px) {
-  p {
-    font-size: 11px;
+  .title {
+    font-size: 5.7vw;
   }
 }

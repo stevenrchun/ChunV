@@ -47,7 +47,7 @@ a {
 
 .outer-border {
   margin: 50px 30px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .inner-border {

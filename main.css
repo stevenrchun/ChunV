@@ -83,6 +83,27 @@ a {
   .bio {
     font-size: 1.5vw;
   }
+
+  /* fix height and width for lulz */
+  .outer-border {
+    width: 1378px;
+    height: 616px;
+    margin: auto;
+  }
+
+  .inner-border {
+    width: 1338px;
+    height: 656px;
+    margin: auto;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+
+  .bio {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
